@@ -51,7 +51,7 @@ section {
 }
 
 .heading__section {
-  font-weight: var(--header-weight);
+  font-variation-settings: var(--header-weight);
   border-bottom: solid 2px #000;
   padding: 4px 10px;
   font-size: 18px;
@@ -76,6 +76,7 @@ section {
 
 .image {
   border-block-end: #000 solid 2px;
+  inline-size: 100%;
 }
 
 .text__section {
@@ -141,7 +142,6 @@ section {
   justify-content: center;
   align-items: center;
   z-index: 1;
-  color: #fff;
   display: flex;
   flex-direction: row;
 
