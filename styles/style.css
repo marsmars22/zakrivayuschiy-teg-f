@@ -3,7 +3,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   max-inline-size: 1440px;
-  font-variation-settings: var(--p-weight);
+  font-variation-settings: "wght"var(--p-weight);
   background-image: var(--gradient-page);
   background-size: cover;
   background-attachment: fixed;
@@ -79,300 +79,301 @@ section {
     -webkit-text-stroke: 1px #fff;
     text-stroke: 1px #fff;
   }
+}
 
-  .image {
-    border-block-end: #000 solid 2px;
-    inline-size: 100%;
+.image {
+  border-block-end: #000 solid 2px;
+  inline-size: 100%;
+}
+
+.text__section {
+  margin: 15px 25px 0 25px;
+  display: grid;
+  gap: 25px;
+  font-size: 18px;
+}
+
+.buttons {
+  display: flex;
+  block-size: 38px;
+  inline-size: 169px;
+  justify-self: end;
+  margin-block-end: 25px;
+  margin-block-start: 25px;
+  margin-inline-end: 25px;
+  gap: 7px;
+
+}
+
+.card__icon-button {
+  all: unset;
+  inline-size: 38px;
+  block-size: 38px;
+}
+
+.button__text {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  position: relative;
+  mix-blend-mode: difference;
+  z-index: 1;
+}
+
+/* Кнопки */
+.card__like-button,
+.save-button,
+.floppy__button {
+  all: unset;
+  background: #fff;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  outline: 2px solid #000;
+  transition: box-shadow 0.3s ease;
+}
+
+.card__like-button {
+  inline-size: 130px;
+  block-size: 38px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.save-button {
+  margin: 0 auto;
+  inline-size: 330px;
+  block-size: 53px;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+
+
+}
+
+.save-button .floppy {
+  position: relative;
+  z-index: 1;
+  inline-size: 21px;
+  block-size: 21px;
+  flex-shrink: 0;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+
+
+.floppy__button {
+  margin: 30px;
+  inline-size: 293px;
+  block-size: 38px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  transition: border 0.3s ease;
+
+}
+
+/* Диалог */
+#dialog__floppy {
+  font-family: var(--accent-font), sans-serif;
+  font-size: 14px;
+  inline-size: clamp(341px, 25vw, 353px);
+  padding: 0;
+  max-inline-size: 353px;
+  overflow: hidden;
+}
+
+#dialog__floppy::backdrop {
+  opacity: 75%;
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.floppy__text {
+  display: flex;
+  gap: 12px;
+  margin: 30px 30px 0 30px;
+  line-height: 150%;
+}
+
+#dialog__floppy svg {
+  inline-size: 39px;
+  block-size: 39px;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+/* Фильтры */
+.contrast {
+  filter: contrast(70%);
+}
+
+.blur {
+  filter: blur(0.2rem);
+}
+
+.opacity {
+  filter: opacity(0.8);
+}
+
+.grayscale {
+  filter: grayscale(0.8);
+}
+
+.saturate {
+  filter: saturate(158%);
+}
+
+.hue-rotate {
+  filter: hue-rotate(-90deg);
+}
+
+.sepia {
+  filter: sepia(80%) blur(3px);
+}
+
+/* Состояния кнопок */
+.card__like-button:focus,
+.save-button:focus,
+.floppy__button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 0 #000;
+}
+
+.card__like-button::before,
+.save-button::before,
+.floppy__button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.card__like-button:hover::before,
+.save-button:hover::before,
+.floppy__button:hover::before {
+  transform: scaleX(1);
+}
+
+/*Сердце*/
+.core {
+  transition: 0.3s linear 0.03s;
+}
+
+.contour {
+  transition: fill 0.1s linear;
+}
+
+.main-body {
+  transition: 0.3s linear;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+
+
+.like-icon:hover .core {
+  fill: var(--accent-color);
+  transition: 0.3s linear 0s;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--accent-color);
+  transition: 0.3s linear 0.05s;
+}
+
+.like-icon:active .core, .like-icon:active .main-body {
+  fill: red;
+}
+
+.like-icon.is-liked .contour, .like-icon.is-liked .main-body, .like-icon.is-liked .core {
+  fill: red;
+}
+
+.like-icon.is-liked .contour {
+  transition: 0.3s linear 0.06s;
+}
+
+.like-icon.is-liked .main-body {
+  transition: 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .core {
+  transition: 0.3s linear 0.0s;
+}
+
+.like-icon {
+  transform-origin: center;
+  margin-inline-end: 3px;
+
+
+}
+
+.like-icon.is-liked .heart {
+  animation: like 0.1s 0.3s ease;
+  transform-origin: center;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s 0.3s ease-in;
+}
+
+@media (width <=375px) {
+  .header {
+    margin-block: 100px;
+
   }
 
   .text__section {
-    margin: 15px 25px 0 25px;
-    display: grid;
-    gap: 25px;
-    font-size: 18px;
-  }
-
-  .buttons {
-    display: flex;
-    block-size: 38px;
-    inline-size: 169px;
-    justify-self: end;
-    margin-block-end: 25px;
-    margin-block-start: 25px;
-    margin-inline-end: 25px;
-    gap: 7px;
-
-  }
-
-  .card__icon-button {
-    all: unset;
-    inline-size: 38px;
-    block-size: 38px;
-  }
-
-  .button__text {
-    font-family: var(--accent-font);
-    font-size: 14px;
-    position: relative;
-    mix-blend-mode: difference;
-    z-index: 1;
-  }
-
-  /* Кнопки */
-  .card__like-button,
-  .save-button,
-  .floppy__button {
-    all: unset;
-    background: #fff;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-    outline: 2px solid #000;
-    transition: box-shadow 0.3s ease;
+    margin: 17px 25px 0 25px;
   }
 
   .card__like-button {
-    inline-size: 130px;
-    block-size: 38px;
-    text-align: center;
-    box-sizing: border-box;
+    block-size: 34px;
+  }
+
+  .buttons {
+    margin-block-start: 27px;
+    margin-inline-end: 27px;
+    margin-block-end: 23px;
+  }
+
+  main {
+    gap: 49px;
+  }
+
+  .heading__section {
+    padding: 5px 10px;
   }
 
   .save-button {
-    margin: 0 auto;
-    inline-size: 330px;
-    block-size: 53px;
-    gap: 5px;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    display: flex;
-    flex-direction: row;
-
-
+    block-size: 84px;
+    inline-size: 306px;
+    flex-direction: column;
   }
 
   .save-button .floppy {
-    position: relative;
-    z-index: 1;
-    inline-size: 21px;
-    block-size: 21px;
-    flex-shrink: 0;
-    color: #fff;
-    mix-blend-mode: difference;
+    inline-size: 26px;
+    block-size: 26px;
+    margin-block-end: 5px;
+
   }
-
-
 
   .floppy__button {
-    margin: 30px;
-    inline-size: 293px;
-    block-size: 38px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    inline-size: 261px
   }
-
-  .card__icon-button:focus-visible {
-    outline: 2px solid var(--accent-color);
-    transition: border 0.3s ease;
-
-  }
-
-  /* Диалог */
-  #dialog__floppy {
-    font-family: var(--accent-font), sans-serif;
-    font-size: 14px;
-    inline-size: clamp(341px, 25vw, 353px);
-    padding: 0;
-    max-inline-size: 353px;
-    overflow: hidden;
-  }
-
-  #dialog__floppy::backdrop {
-    opacity: 75%;
-    background-color: rgba(0, 0, 0, 1);
-  }
-
-  .floppy__text {
-    display: flex;
-    gap: 12px;
-    margin: 30px 30px 0 30px;
-    line-height: 150%;
-  }
-
-  #dialog__floppy svg {
-    inline-size: 39px;
-    block-size: 39px;
-    align-self: center;
-    flex-shrink: 0;
-  }
-
-  /* Фильтры */
-  .contrast {
-    filter: contrast(70%);
-  }
-
-  .blur {
-    filter: blur(0.2rem);
-  }
-
-  .opacity {
-    filter: opacity(0.8);
-  }
-
-  .grayscale {
-    filter: grayscale(0.8);
-  }
-
-  .saturate {
-    filter: saturate(158%);
-  }
-
-  .hue-rotate {
-    filter: hue-rotate(-90deg);
-  }
-
-  .sepia {
-    filter: sepia(80%);
-  }
-
-  /* Состояния кнопок */
-  .card__like-button:focus,
-  .save-button:focus,
-  .floppy__button:focus {
-    outline: none;
-    box-shadow: 2px 2px 0 0 #000;
-  }
-
-  .card__like-button::before,
-  .save-button::before,
-  .floppy__button::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: #000;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s ease-in-out;
-    z-index: 0;
-  }
-
-  .card__like-button:hover::before,
-  .save-button:hover::before,
-  .floppy__button:hover::before {
-    transform: scaleX(1);
-  }
-
-  /*Сердце*/
-  .core {
-    transition: 0.3s linear 0.03s;
-  }
-
-  .contour {
-    transition: fill 0.1s linear;
-  }
-
-  .main-body {
-    transition: 0.3s linear;
-  }
-
-  .sparks {
-    opacity: 0;
-  }
-
-
-
-  .like-icon:hover .core {
-    fill: var(--accent-color);
-    transition: 0.3s linear 0s;
-  }
-
-  .like-icon:hover .main-body {
-    fill: var(--accent-color);
-    transition: 0.3s linear 0.05s;
-  }
-
-  .like-icon:active .core, .like-icon:active .main-body {
-    fill: red;
-  }
-
-  .like-icon.is-liked .contour, .like-icon.is-liked .main-body, .like-icon.is-liked .core {
-    fill: red;
-  }
-
-  .like-icon.is-liked .contour {
-    transition: 0.3s linear 0.06s;
-  }
-
-  .like-icon.is-liked .main-body {
-    transition: 0.3s linear 0.05s;
-  }
-
-  .like-icon.is-liked .core {
-    transition: 0.3s linear 0.0s;
-  }
-
-  .like-icon {
-    transform-origin: center;
-    margin-inline-end: 3px;
-
-
-  }
-
-  .like-icon.is-liked .heart {
-    animation: like 0.1s 0.3s ease;
-    transform-origin: center;
-  }
-
-  .like-icon.is-liked .sparks {
-    animation: sparks 0.3s 0.3s ease-in;
-  }
-
-  @media (width <=375px) {
-    .header {
-      margin-block: 100px;
-
-    }
-
-    .text__section {
-      margin: 17px 25px 0 25px;
-    }
-
-    .card__like-button {
-      block-size: 34px;
-    }
-
-    .buttons {
-      margin-block-start: 27px;
-      margin-inline-end: 27px;
-      margin-block-end: 23px;
-    }
-
-    main {
-      gap: 49px;
-    }
-
-    .heading__section {
-      padding: 5px 10px;
-    }
-
-    .save-button {
-      block-size: 84px;
-      inline-size: 306px;
-      flex-direction: column;
-    }
-
-    .save-button .floppy {
-      inline-size: 26px;
-      block-size: 26px;
-      margin-block-end: 5px;
-
-    }
-
-    .floppy__button {
-      inline-size: 261px
-    }
-  }
+}
