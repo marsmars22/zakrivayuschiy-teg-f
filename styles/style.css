@@ -119,10 +119,12 @@ section {
   z-index: 1;
 }
 
+#dialog__floppy .button__text {
+  text-transform: uppercase;
+}
+
 /* Кнопки */
-.card__like-button,
-.save-button,
-.floppy__button {
+.button {
   all: unset;
   background: #fff;
   color: #fff;
@@ -270,6 +272,7 @@ section {
 /*Сердце*/
 .core {
   transition: 0.3s linear 0.03s;
+  fill: transparent;
 }
 
 .contour {
@@ -278,6 +281,7 @@ section {
 
 .main-body {
   transition: 0.3s linear;
+  fill: transparent;
 }
 
 .sparks {
@@ -298,6 +302,14 @@ section {
 
 .like-icon:active .core, .like-icon:active .main-body {
   fill: red;
+}
+
+.like-icon:active .core {
+  transition: 0.3s linear 0s;
+}
+
+.like-icon:active .main-body {
+  transition: 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .contour, .like-icon.is-liked .main-body, .like-icon.is-liked .core {
