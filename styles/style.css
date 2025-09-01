@@ -243,16 +243,12 @@ section {
 }
 
 /* Состояния кнопок */
-.card__like-button:focus,
-.save-button:focus,
-.floppy__button:focus {
+.button:focus {
   outline: none;
   box-shadow: 2px 2px 0 0 #000;
 }
 
-.card__like-button::before,
-.save-button::before,
-.floppy__button::before {
+.button::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -263,9 +259,7 @@ section {
   z-index: 0;
 }
 
-.card__like-button:hover::before,
-.save-button:hover::before,
-.floppy__button:hover::before {
+.button:hover::before {
   transform: scaleX(1);
 }
 
